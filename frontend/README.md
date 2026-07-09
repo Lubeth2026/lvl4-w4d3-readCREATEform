@@ -1,16 +1,51 @@
-# React + Vite
+# Order History App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Overview
+This project is a full-stack order management app
+The app allows users to:
+- View order history stored in a Supabase Database
+- Create new order records through React form
+- Send requests from React frontend to a Flask backend API
+- Store and retrieve order data using Supabase
+The project demonstrates communication between:
+- React frontend
+- Flask backend API
+- Supabase database
 
-Currently, two official plugins are available:
+### How to Run
+Backend
+1. Open terminal
+2. Navigate into backend folder:
+cd backend
+3. Create a virtual env:
+python -m venv .venv
+4. Activate the virtual env:
+source .venv/Scripts/activate
+5. Install dependencies:
+python -m pip install -r requirements.txt
+6. Start the Flask server:
+flask run
+7. Backend will run on:
+http://127.0.0.1:5000
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+*Env Variable
+The backend requires Supabase connection info
+Create .env file inside the backend folder:
+SUPABASE_URL=https://zxnhbkkijrscrujegavj.supabase.co
+SUPABASE_KEY=sb_publishable__rFHgacthHci1B1J-14lNw_9NY5BhnO
 
-## React Compiler
+Frontend
+1. Open terminal
+2. Navigate into frontend folder:
+cd frontend
+3. Install dependencies:
+npm install
+4. Start the React page:
+npm run dev
+5. Frontend will run on:
+http://localhost:5173
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+*Env Variable
+The frontend requires the backend URL
+Create .env file inside the frontend folder:
+VITE_BACKEND=http://127.0.0.1:5000
