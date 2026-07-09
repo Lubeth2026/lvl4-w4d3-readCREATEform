@@ -2,6 +2,7 @@
 import './App.css'
 import { useEffect, useState } from 'react';
 import Health from './Health';
+import Form from '../Form';
 
 function App() {
   const [isConnecting, setIsConnecting] = useState(true);
@@ -33,6 +34,7 @@ function App() {
     <>
       <h1>Week 4 Day 3 Assignment</h1>
       <Health />
+      <Form />
       <h2>Order History</h2>
       {history.map((order) =>(
         <div key={order.id}>
