@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 
-function Form() {
+function Form({get_history}) {
     const [customerId, setCustomerId] = useState("");
     const [status, setStatus] = useState("");
     
@@ -15,6 +15,7 @@ function Form() {
             })
             const data = await response.json()
             console.log(data)
+            get_history()
         } catch (error) {
             console.error(error)
         }

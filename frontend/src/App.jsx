@@ -34,7 +34,7 @@ function App() {
     <>
       <h1>Week 4 Day 3 Assignment</h1>
       <Health />
-      <Form />
+      <Form get_history={get_history} />
       <h2>Order History</h2>
       {history.map((order) =>(
         <div key={order.id}>
