@@ -16,3 +16,11 @@ supabase: Client = create_client(
 @app.get("/")
 def health():
     return {"status": "Good"}
+
+@app.get("/api/history")
+def get_history():
+    response = supabase.table("orders").select("*").execute()
+    return {"history": response.data}
+
+if __name__ == "__main__":
+    app.run(debug=True)
