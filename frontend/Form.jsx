@@ -7,7 +7,14 @@ function Form() {
     
     async function createOrder() {
         try {
-            console.log({customer_id: customerId, status: status})
+            const newOrder = {customer_id: customerId, status: status};
+            const response = await fetch(import.meta.env.VITE_BACKEND + "/api/orders", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(newOrder)
+            })
+            const data = await response.json()
+            console.log(data)
         } catch (error) {
             console.error(error)
         }
