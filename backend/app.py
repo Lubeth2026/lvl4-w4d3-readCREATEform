@@ -42,5 +42,11 @@ def update_order(order_id):
     }).eq("id", order_id).execute())
     return {"message": "Order Updated", "order": response.data}
 
+@app.delete("/api/orders/<int:order_id>")
+def delete_order(order_id):
+
+    response = (supabase.table("orders").delete().eq("id", order_id).execute())
+    return {"message": "Order Deleted", "order": response.data}
+
 if __name__ == "__main__":
     app.run(debug=True)
