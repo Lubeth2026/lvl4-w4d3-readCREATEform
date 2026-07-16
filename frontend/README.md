@@ -1,21 +1,25 @@
-# Order History App
+# Order Log Application
 
 ## Overview
-This project is a full-stack order management app
-The app allows users to:
-- View order history stored in a Supabase Database
-- Create new order records through React form
-- Send requests from React frontend to a Flask backend API
-- Store and retrieve order data using Supabase
-The project demonstrates communication between:
-- React frontend
-- Flask backend API
-- Supabase database
+This app is a full-stack order management system built with a React frontend, Flask backend, and Supabase database.
+The app allows users to view, create, update, and delete orders.
 
-### How to Run
-Backend
-1. Open terminal
-2. Navigate into backend folder:
+## Data Managed
+The app manages order data stored in a Supabase `orders` table.
+Each order contains:
+- `id` - Unique identifier for the order
+- `customer_id` - Identifier for the customer associated with the order
+- `status` - Current status of the order (examples: pending, completed, shipped)
+- `ordered_at` - Date and time the order was created
+The application supports the following operations:
+- Create new orders
+- View order history
+- Update an order status
+- Delete orders
+
+# Running the Backend (Flask)
+1. Make sure Python is installed.
+2. Navigate to the backend folder:
 cd backend
 3. Create a virtual env:
 python -m venv .venv

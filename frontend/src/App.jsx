@@ -49,6 +49,16 @@ function App() {
     }
   }
 
+  async function delete_order(order) {
+    try {
+      const url = import.meta.env.VITE_BACKEND + "/api/orders/" + order.id;
+      const response = await fetch(url, {method: "DELETE",});
+      await get_history();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <>
       <h1>Order Log</h1>
@@ -60,9 +70,15 @@ function App() {
           <p>Order ID: {order.id}</p>
           <p>Customer ID: {order.customer_id}</p>
           <p>Status: </p>
-          <select value={statusChanges[order.id] || order.status}
-            onChange={(event) => {setStatusChanges({...statusChanges, [order.id]: event.target.value });
-            }}>
+          <select
+            value={statusChanges[order.id] || order.status}
+            onChange={(event) => {
+              setStatusChanges({
+                ...statusChanges,
+                [order.id]: event.target.value,
+              });
+            }}
+          >
             <option value="pending">Pending</option>
             <option value="completed">Completed</option>
             <option value="cancelled">Cancelled</option>
@@ -73,6 +89,7 @@ function App() {
           <p>Ordered At: {order.ordered_at}</p>
 
           <button onClick={() => update_order(order)}>Update</button>
+          <button onClick={() => delete_order(order)}>Delete</button>
         </div>
       ))}
     </>
